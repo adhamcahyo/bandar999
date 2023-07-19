@@ -1,21 +1,33 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-image: url('casino-background.jpg');
+  
+}
+
 .home-page {
     text-align: center;
     margin: 100px auto;
-  }
+    }
   
   h1 {
     font-size: 36px;
-    color: #333;
+    color: #ebe5e5;
   }
   
   p {
     font-size: 18px;
-    color: #666;
+    color: #fcfcfc;
   }
   
   .play-button {
     background-color: #ffcc00;
-    color: #333;
+    color: #000000;
     padding: 10px 20px;
     font-size: 20px;
     border: none;

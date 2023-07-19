@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Register.css';
 
 const Register = () => {
   const [fullName, setFullName] = useState('');
@@ -24,7 +25,7 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
         <label>
@@ -82,7 +83,6 @@ const Register = () => {
             <option value="">-- Pilih Bank --</option>
             <option value="bank1">BCA</option>
             <option value="bank2">BNI</option>
-            {}
           </select>
         </label>
         <label>
@@ -96,6 +96,12 @@ const Register = () => {
         </label>
         <button type="submit">Register</button>
       </form>
+      <div className="footer">
+        <p>&copy; {new Date().getFullYear()} Bandar999. All rights reserved.</p>
+        <p>
+          Website by <a href="/">Adham cahyo</a>
+        </p>
+      </div>
     </div>
   );
 };
