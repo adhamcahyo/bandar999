@@ -25,7 +25,7 @@ const App = () => {
           <Route path="/riwayat-withdraw" component={WithdrawHistory} />
           <Route path="/riwayat-taruhan" component={BetHistory} />
           <Route path="/dashboard" component={Dashboard} />
-          <Route path="/" component={HomePage} />
+          <Route path="/home-page" component={HomePage} />
         </Switch>
       </div>
     </Router>

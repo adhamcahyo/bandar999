@@ -1,0 +1,44 @@
+.game-list-page {
+    background-color: #f0f0f0;
+    padding: 30px;
+  }
+  
+  h1 {
+    font-size: 36px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .game-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  /* Style untuk kartu permainan */
+  .game-card {
+    width: 300px;
+    height: 200px;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 18px;
+    color: #666;
+  }
+  
