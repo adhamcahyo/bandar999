@@ -9,10 +9,10 @@ const Register = () => {
   const [accountNumber, setAccountNumber] = useState('');
   const [selectedBank, setSelectedBank] = useState('');
   const [password, setPassword] = useState('');
+  const [notification, setNotification] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Lakukan proses pendaftaran menggunakan data-data yang diisi
     console.log('Data pendaftaran:', {
       fullName,
       username,
@@ -22,6 +22,39 @@ const Register = () => {
       selectedBank,
       password,
     });
+
+    
+    fetch('/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        fullName,
+        username,
+        email,
+        phoneNumber,
+        accountNumber,
+        selectedBank,
+        password,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        
+        showNotification(data.message);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        showNotification('Failed to register. Please try again later.');
+      });
+  };
+
+  const showNotification = (message) => {
+    setNotification(message);
+    setTimeout(() => {
+      setNotification('');
+    }, 5000);
   };
 
   return (
@@ -96,6 +129,9 @@ const Register = () => {
         </label>
         <button type="submit">Register</button>
       </form>
+
+      {notification && <div className="notification">{notification}</div>}
+
       <div className="footer">
         <p>&copy; {new Date().getFullYear()} Bandar999. All rights reserved.</p>
         <p>

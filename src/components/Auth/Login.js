@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom'; // Import Link from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'; 
 import API from 'E:/project/bandar999/src/services/api';
 import './Login.css';
 
@@ -16,7 +16,7 @@ const Login = () => {
 
       if (response.token) {
         localStorage.setItem('token', response.token);
-        navigate('/dashboard'); // Use navigate without .push()
+        navigate('/dashboard'); 
       } else {
         alert('Username atau password salah. Silakan coba lagi.');
       }
