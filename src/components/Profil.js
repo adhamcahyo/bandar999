@@ -27,9 +27,9 @@ const Profil = () => {
   };
 
   return (
-    <div className="profil-container"> {/* Gunakan kelas profil-container */}
+    <div className="profil-container"> 
       <h2>Profil</h2>
-      <div className="profil-field"> {/* Gunakan kelas profil-field */}
+      <div className="profil-field"> 
         <label>Nama Lengkap:</label>
         <input type="text" value={userData.fullName} readOnly />
       </div>
