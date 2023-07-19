@@ -1,33 +1,32 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './components/HomePage';
-import Login from './components/Auth/Login';
-import Register from './components/Auth/Register';
-import Dashboard from './components/Dashboard';
-import Profil from './components/Profil';
-import GameSelection from './components/GameSelection';
-import DepositWithdraw from './components/DepositWithdraw';
-import DepositHistory from './components/DepositHistory';
-import WithdrawHistory from './components/WithdrawHistory';
-import BetHistory from './components/BetHistory';
+import LoginPage from './components/Auth/Login';
+import RegisterPage from './components/Auth/Register';
+import DashboardPage from './components/Dashboard';
+import ProfilPage from './components/Profil';
+import GameSelectionPage from './components/GameSelection';
+import DepositWithdrawPage from './components/DepositWithdraw';
+import DepositHistoryPage from './components/DepositHistory';
+import WithdrawHistoryPage from './components/WithdrawHistory';
+import BetHistoryPage from './components/BetHistory';
 
 const App = () => {
   return (
     <Router>
       <div>
-        <Switch>
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
-          <Route path="/profil" component={Profil} />
-          <Route path="/pilih-permainan" component={GameSelection} />
-          <Route path="/deposit-withdraw" component={DepositWithdraw} />
-          <Route path="/riwayat-deposit" component={DepositHistory} />
-          <Route path="/riwayat-withdraw" component={WithdrawHistory} />
-          <Route path="/riwayat-taruhan" component={BetHistory} />
-          <Route path="/dashboard" component={Dashboard} />
-          <Route path="/home-page" component={HomePage} />
-
-        </Switch>
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/profil" element={<ProfilPage />} />
+          <Route path="/pilih-permainan" element={<GameSelectionPage />} />
+          <Route path="/deposit-withdraw" element={<DepositWithdrawPage />} />
+          <Route path="/riwayat-deposit" element={<DepositHistoryPage />} />
+          <Route path="/riwayat-withdraw" element={<WithdrawHistoryPage />} />
+          <Route path="/riwayat-taruhan" element={<BetHistoryPage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/" element={<HomePage />} />
+        </Routes>
       </div>
     </Router>
   );
