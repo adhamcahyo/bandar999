@@ -29,7 +29,7 @@ const HomePage = () => {
     <div className="home-page">
       <div className="header">
         <h1>Welcome to Bandar999 Casino</h1>
-        <p>Maxwin Sak Pole Navigasi</p>
+        <p>Maxwin Sak Pole</p>
       </div>
 
       <nav className="top-navigation">
