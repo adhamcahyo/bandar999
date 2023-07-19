@@ -1,0 +1,89 @@
+/* GameSelection.css */
+
+/* Container */
+.game-selection-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+  }
+  
+  /* Heading */
+  h2 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Select box container */
+  .select-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  /* Select box label */
+  label {
+    font-size: 20px;
+    color: #333;
+    margin-right: 10px;
+  }
+  
+  /* Select box */
+  select {
+    font-size: 20px;
+    color: #333;
+    padding: 10px 20px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  
+  /* Custom select arrow */
+  select::-ms-expand {
+    display: none;
+  }
+  
+  select::-webkit-select-placeholder {
+    color: #aaa;
+  }
+  
+  select:-moz-placeholder {
+    color: #aaa;
+  }
+  
+  select::-moz-placeholder {
+    color: #aaa;
+  }
+  
+  select:-ms-input-placeholder {
+    color: #aaa;
+  }
+  
+  /* Option styles */
+  option {
+    font-size: 18px;
+    color: #333;
+    background-color: #fff;
+  }
+  
+  /* Hover styles */
+  select:hover {
+    border-color: #666;
+  }
+  
+  /* Focus styles */
+  select:focus {
+    outline: none;
+    border-color: #666;
+  }
+  
+  /* Selected option styles */
+  select option:checked {
+    background-color: #ffcc00;
+    color: #333;
+  }
+  

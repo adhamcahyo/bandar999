@@ -3,12 +3,14 @@ const mysql = require('mysql2');
 
 const app = express();
 const port = 3000;
+
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '',
-  database: 'bandar999', 
+  database: 'bandar999',
 });
+
 db.connect((err) => {
   if (err) {
     throw err;
@@ -17,7 +19,7 @@ db.connect((err) => {
 });
 
 app.get('/api/deposit-history', (req, res) => {
-  const query = 'SELECT * FROM deposit_history'; 
+  const query = 'SELECT * FROM deposit_history';
   db.query(query, (err, results) => {
     if (err) {
       res.status(500).json({ error: 'Failed to get deposit history' });
@@ -28,7 +30,7 @@ app.get('/api/deposit-history', (req, res) => {
 });
 
 app.get('/api/withdraw-history', (req, res) => {
-  const query = 'SELECT * FROM withdraw_history'; 
+  const query = 'SELECT * FROM withdraw_history';
   db.query(query, (err, results) => {
     if (err) {
       res.status(500).json({ error: 'Failed to get withdraw history' });
@@ -39,7 +41,7 @@ app.get('/api/withdraw-history', (req, res) => {
 });
 
 app.get('/api/bet-history', (req, res) => {
-  const query = 'SELECT * FROM bet_history'; 
+  const query = 'SELECT * FROM bet_history';
   db.query(query, (err, results) => {
     if (err) {
       res.status(500).json({ error: 'Failed to get bet history' });
@@ -49,7 +51,6 @@ app.get('/api/bet-history', (req, res) => {
   });
 });
 
-// Jalankan server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
