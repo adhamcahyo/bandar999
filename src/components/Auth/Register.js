@@ -60,6 +60,7 @@ const Register = () => {
   return (
     <div className="container">
       <h2>Register</h2>
+      {notification && <div className="notification">{notification}</div>}
       <form onSubmit={handleSubmit}>
         <label>
           Nama Lengkap:
@@ -130,7 +131,7 @@ const Register = () => {
         <button type="submit">Register</button>
       </form>
 
-      {notification && <div className="notification">{notification}</div>}
+     
 
       <div className="footer">
         <p>&copy; {new Date().getFullYear()} Bandar999. All rights reserved.</p>

@@ -21,6 +21,7 @@ const API = {
       throw new Error('Failed to connect to the server.');
     }
   },
+  
 };
 
 export default API;

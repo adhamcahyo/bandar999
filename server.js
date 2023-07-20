@@ -1,5 +1,6 @@
 const express = require('express');
 const mysql = require('mysql2');
+const bodyParser = require('body-parser');
 
 const app = express();
 const port = 3000;
@@ -16,6 +17,46 @@ db.connect((err) => {
     throw err;
   }
   console.log('Connected to database');
+});
+
+app.use(bodyParser.json());
+
+app.post('/api/register', (req, res) => {
+  const {
+    username,
+    full_name,
+    email,
+    phone,
+    account_number,
+    bank,
+    password,
+  } = req.body;
+n
+
+  const query = `
+    INSERT INTO users (username, full_name, email, phone, account_number, bank, password)
+    VALUES (?, ?, ?, ?, ?, ?, ?)
+  `;
+  const values = [
+    username,
+    full_name,
+    email,
+    phone,
+    account_number,
+    bank,
+    password,
+  ];
+
+  db.query(query, values, (err, result) => {
+    if (err) {
+      console.error('Error:', err);
+      res.status(500).json({ message: 'Failed to register. Please try again later.' });
+    } else {
+      console.log('Data inserted:', result);
+      res.json({ message: 'Registration successful!' });
+    }
+  });
+  
 });
 
 app.get('/api/deposit-history', (req, res) => {
