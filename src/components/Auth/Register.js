@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Register.css';
 
 const Register = () => {
@@ -9,10 +10,49 @@ const Register = () => {
   const [accountNumber, setAccountNumber] = useState('');
   const [selectedBank, setSelectedBank] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [notification, setNotification] = useState('');
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!username || username.length < 4) {
+      showNotification('Username must be at least 4 characters long.');
+      return;
+    }
+
+    if (!email || !validateEmail(email)) {
+      showNotification('Please enter a valid email address.');
+      return;
+    }
+
+    if (!phoneNumber || phoneNumber.length < 10 || phoneNumber.length > 15) {
+      showNotification('Phone number must be between 10 and 15 characters long.');
+      return;
+    }
+
+    if (!accountNumber || accountNumber.length < 6) {
+      showNotification('Account number must be at least 6 characters long.');
+      return;
+    }
+
+    if (!selectedBank) {
+      showNotification('Please select a bank.');
+      return;
+    }
+
+    if (password.length < 6) {
+      showNotification('Password must be at least 6 characters long.');
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      showNotification('Passwords do not match.');
+      return;
+    }
+
     console.log('Data pendaftaran:', {
       fullName,
       username,
@@ -23,7 +63,6 @@ const Register = () => {
       password,
     });
 
-    
     fetch('/register', {
       method: 'POST',
       headers: {
@@ -41,8 +80,10 @@ const Register = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        
         showNotification(data.message);
+        if (data.success) {
+          navigate('/dashboard');
+        }
       })
       .catch((error) => {
         console.error('Error:', error);
@@ -55,6 +96,11 @@ const Register = () => {
     setTimeout(() => {
       setNotification('');
     }, 5000);
+  };
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   };
 
   return (
@@ -128,10 +174,17 @@ const Register = () => {
             required
           />
         </label>
+        <label>
+          Konfirmasi Password:
+          <input
+            type="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          />
+        </label>
         <button type="submit">Register</button>
       </form>
-
-     
 
       <div className="footer">
         <p>&copy; {new Date().getFullYear()} Bandar999. All rights reserved.</p>
